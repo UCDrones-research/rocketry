@@ -21,10 +21,10 @@ This is a _sample_ book written in **Markdown**. You can use anything that Pando
 
 ```{r, echo=FALSE, message = FALSE}
 library(tidyverse)
-
+library(readxl)
 ```
 
-## Usage 
+## Usage 3
 
 Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
 

@@ -2,7 +2,7 @@ fig:nice-fig
 tab:nice-tab
 eq:binom
 about
-usage
+usage-3
 render-book
 preview-book
 hello-bookdown

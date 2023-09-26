@@ -281,6 +281,31 @@
             "type": "book"
         },
         {
+            "URL": "https://readxl.tidyverse.org",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                },
+                {
+                    "family": "Bryan",
+                    "given": "Jennifer"
+                }
+            ],
+            "id": "R-readxl",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "note": "R package version 1.4.3",
+            "title": "Readxl: Read excel files",
+            "title-short": "Readxl",
+            "type": "book"
+        },
+        {
             "URL": "https://github.com/rstudio/rmarkdown",
             "author": [
                 {
