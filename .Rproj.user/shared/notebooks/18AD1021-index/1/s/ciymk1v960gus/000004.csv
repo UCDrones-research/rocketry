@@ -1,6 +1,0 @@
-"0","complete_plot <- subset(gnt,select=c(""Group"",""Status""))"
-"0",""
-"0","ggplot(complete_plot,aes(y=1)) + "
-"0","  geom_bar(aes(fill=Status), position=""fill"") +"
-"0","  scale_x_continuous(expand=expansion(0),labels = scales::percent_format())"
-"0",""
