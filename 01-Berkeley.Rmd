@@ -1,0 +1,40 @@
+# UC Berkeley
+
+All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file.
+
+```{r, echo= FALSE}
+campus = "Berkeley"
+print_campus_gantt(gnt_berkeley,campus)
+
+```
+
+## Student Teams
+
+### Space Enterprise at Berkeley (SEB)
+
+```{r echo=FALSE, results='asis'}
+
+shortname="SEB"
+
+print_club_detail(total_xcl,shortname)
+
+```
+
+### Space Technologies and Rocketry (STAR)
+
+```{r echo=FALSE, results='asis'}
+
+shortname="STAR"
+
+print_club_detail(total_xcl,shortname)
+
+```
+
+## Oversight
+
+### EH\&S
+
+### Risk Services
+
+### School of Engineering
+

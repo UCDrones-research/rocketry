@@ -1,0 +1,44 @@
+```{r, echo=FALSE, warning=FALSE}
+total_gantt<-read.csv("dev_gantt.csv",h=T)
+
+
+
+print_campus = function(total_gantt,campus){
+
+gantt<-filter(total_gantt, Campus==campus)
+
+
+today_Date <- Sys.Date()
+
+
+
+start_Date <-as.Date(min(gsub("\\.","-",gantt$Start)))
+end_Date <- as.Date(max(gsub("\\.","-",gantt$End)))+weeks(1)
+
+gantt["End"][gantt["End"]=="0"]<-format(end_Date,"%Y.%m.%d")
+
+gantt<-gantt[order(as.Date(gantt$Start,format="%Y.%m.%d")),]
+
+acts<-unique(as.character(gantt$Activity))
+els <-unique(as.character(gantt$Status))
+
+actcols <- c("#548235", "#2E75B6", "#BF9000", "#7030A0", "#cd6600")
+
+g.gantt <- gather(gantt, "state", "date", 6:7) %>% mutate(date = as.Date(date, "%Y.%m.%d"), Activity=factor(Activity, acts[length(acts):1]), Status=factor(Status, els))
+
+ggplot(g.gantt, aes(date, Activity, colour = Status, group=Item)) +
+  geom_line(linewidth = 10) +
+  scale_color_manual(values=actcols, name="Key") +
+  labs(x="Date", y=NULL, title=campus) + 
+  scale_x_date(date_labels = "%b %d")+
+  theme_gray(base_size=14)+
+  annotate(geom = "vline",
+           x = today_Date,
+           xintercept = today_Date,
+           linetype = "dashed",
+           colour = "red", 
+           linewidth = 1.5) 
+}
+
+print_campus(total_gantt,"Berkeley")
+```

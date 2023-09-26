@@ -1,12 +1,30 @@
-# Parts
+# UC Irvine
 
-You can add parts to organize one or more book chapters together. Parts can be inserted at the top of an .Rmd file, before the first-level chapter heading in that same file. 
+```{r, echo= FALSE}
+campus = "UC Irvine"
+print_campus_gantt(gnt_ucirvine,campus)
 
-Add a numbered part: `# (PART) Act one {-}` (followed by `# A chapter`)
+```
 
-Add an unnumbered part: `# (PART\*) Act one {-}` (followed by `# A chapter`)
+## Student Teams
 
-Add an appendix as a special kind of un-numbered part: `# (APPENDIX) Other stuff {-}` (followed by `# A chapter`). Chapters in an appendix are prepended with letters instead of numbers.
+### Aggie Propulsion Lab (APL)
+
+```{r echo=FALSE, results='asis'}
+
+shortname="RPUCI"
+
+print_club_detail(total_xcl,shortname)
 
 
 
+```
+
+
+## Oversight
+
+### EH\&S
+
+### Risk Services
+
+### School of Engineering

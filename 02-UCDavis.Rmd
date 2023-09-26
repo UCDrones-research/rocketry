@@ -1,0 +1,39 @@
+# UC Davis
+
+```{r, echo= FALSE}
+campus = "UC Davis"
+print_campus_gantt(gnt_ucdavis,campus)
+
+```
+
+## Student Teams
+
+### Aggie Propulsion Lab (APL)
+
+```{r echo=FALSE, results='asis'}
+
+shortname="APL"
+
+print_club_detail(total_xcl,shortname)
+
+
+
+```
+
+### ECLIPSE Rocketry
+
+```{r echo=FALSE, results='asis'}
+
+shortname="ECLIPSE"
+
+print_club_detail(total_xcl,shortname)
+
+```
+
+## Oversight
+
+### EH\&S
+
+### Risk Services
+
+### School of Engineering

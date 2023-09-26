@@ -8,83 +8,41 @@ bibliography: [book.bib, packages.bib]
 # url: your book url like https://bookdown.org/yihui/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  This is a minimal example of using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::gitbook,
-  set in the _output.yml file.
+  Dashboard for information about UC Rocketry Projects
 link-citations: yes
 github-repo: 
 ---
 
-# About
+# Home Page{-}
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
+```{r,echo=FALSE, out.width='50%', fig.asp=.75, fig.align='center'}
+knitr::include_graphics('images/COE_logo.png')
+```
+
+The **UC Center of Excellence on Unmanned Aircraft System Safety** has developed this portal of resources for all users of Unmanned Aircraft Systems within the University of California.
+
+
+## Connect with Us {-}
+Send us an email at UASsafety@ucmerced.edu if you'd like to join our UC Drone [email listserv](mailto:uassafety@ucmerced.edu?subject=UC%20Drone%20Listserv%20Request&body=Please%20sign%20me%20up%20for%20the%20UC%20Drone%20listserv) 
+
+Want to schedule an online appointment to chat?  Use our [Booking link](https://outlook.office365.com/owa/calendar/UCCenterofExcellenceonUASSafety@merced.onmicrosoft.com/bookings/)
+
+- Find a time that works for you and the system will schedule a MS Teams meeting for us.
+
 
 ```{r, echo=FALSE, message = FALSE}
 library(tidyverse)
 library(readxl)
 ```
 
-## Usage 3
-
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
-
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
-
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
-```{r, echo=FALSE, warning=FALSE}
-total_gantt<-read.csv("dev_gantt.csv",h=T)
-
-
-
-print_campus = function(total_gantt,campus){
-
-gantt<-filter(total_gantt, Campus==campus)
-
-
-today_Date <- Sys.Date()
-
-
-
-start_Date <-as.Date(min(gsub("\\.","-",gantt$Start)))
-end_Date <- as.Date(max(gsub("\\.","-",gantt$End)))+weeks(1)
-
-gantt["End"][gantt["End"]=="0"]<-format(end_Date,"%Y.%m.%d")
-
-gantt<-gantt[order(as.Date(gantt$Start,format="%Y.%m.%d")),]
-
-acts<-unique(as.character(gantt$Activity))
-els <-unique(as.character(gantt$Status))
-
-actcols <- c("#548235", "#2E75B6", "#BF9000", "#7030A0", "#cd6600")
-
-g.gantt <- gather(gantt, "state", "date", 6:7) %>% mutate(date = as.Date(date, "%Y.%m.%d"), Activity=factor(Activity, acts[length(acts):1]), Status=factor(Status, els))
-
-ggplot(g.gantt, aes(date, Activity, colour = Status, group=Item)) +
-  geom_line(linewidth = 10) +
-  scale_color_manual(values=actcols, name="Key") +
-  labs(x="Date", y=NULL, title=campus) + 
-  scale_x_date(date_labels = "%b %d")+
-  theme_gray(base_size=14)+
-  annotate(geom = "vline",
-           x = today_Date,
-           xintercept = today_Date,
-           linetype = "dashed",
-           colour = "red", 
-           linewidth = 1.5) 
-}
-
-print_campus(total_gantt,"Berkeley")
-
-```
-
-## Render book
 
 ```{r, echo=FALSE, warning=FALSE }
 
 total_xcl<-read_excel("UC_HPR.xlsx", sheet = "Contacts")
 
+campus = "UC Davis"
+create_gantt_table = function(total_xcl,campus) {
 
-campus = "Berkeley"
 xcl<-filter(total_xcl, Campus==campus)
 today_Date <- Sys.Date()
 
@@ -92,22 +50,28 @@ hs <- c("Item","Group","Status","Start","End")
 
 fc <- xcl$ShortName
 pc <- as.character(1:length(fc))
-sc <- case_when(xcl$P_Interview==0 ~ "In Progress",xcl$P_Interview<=today_Date ~ "Completed", xcl$P_Interview>today_Date ~ "Planned")
+sc <- case_when(is.na(xcl$P_Interview) ~ "Not Started",xcl$P_Interview<=today_Date ~ "Completed", xcl$P_Interview>today_Date ~ "In Progress")
 tc <- xcl$P_contact
 hc <- xcl$P_Interview
 
 gnt <- data.frame(pc,fc,sc,tc,hc)
 colnames(gnt) <- hs
 
-gnt <- gnt %>% add_row(Item="3",Group="EHS",Status=case_when(is.na(xcl$R_Interview[1]) ~ "In Progress",xcl$E_Interview[1]<=today_Date ~ "Completed", xcl$E_Interview[1]>today_Date ~ "Planned"),Start=xcl$E_Contact[1],End=xcl$E_Interview[1])
+gnt <- gnt %>% add_row(Item="3",Group="EHS",Status=case_when(is.na(xcl$R_Interview[1]) ~ "Not Started",xcl$E_Interview[1]<=today_Date ~ "Completed", xcl$E_Interview[1]>today_Date ~ "In Progress"),Start=xcl$E_Contact[1],End=xcl$E_Interview[1])
 
-gnt <- gnt %>% add_row(Item="4",Group="Risk",Status=case_when(is.na(xcl$R_Interview[1]) ~ "In Progress",xcl$R_Interview[1]<=today_Date ~ "Completed", xcl$R_Interview[1]>today_Date ~ "Planned"),Start=xcl$R_Contact[1],End=xcl$R_Interview[1])
+gnt <- gnt %>% add_row(Item="4",Group="Risk",Status=case_when(is.na(xcl$R_Interview[1]) ~ "Not Started",xcl$R_Interview[1]<=today_Date ~ "Completed", xcl$R_Interview[1]>today_Date ~ "In Progress"),Start=xcl$R_Contact[1],End=xcl$R_Interview[1])
 
-gnt <- gnt %>% add_row(Item="5",Group="Faculty",Status=case_when(is.na(xcl$F_Interview[1]) ~ "In Progress",xcl$F_Interview[1]<=today_Date ~ "Completed", xcl$F_Interview[1]>today_Date ~ "Planned"),Start=xcl$F_Contact[1],End=xcl$F_Interview[1])
+gnt <- gnt %>% add_row(Item="5",Group="Faculty",Status=case_when(is.na(xcl$F_Interview[1]) ~ "Not Started",xcl$F_Interview[1]<=today_Date ~ "Completed", xcl$F_Interview[1]>today_Date ~ "In Progress"),Start=xcl$F_Contact[1],End=xcl$F_Interview[1])
 
-gnt <- gnt %>% add_row(Item="6",Group="Dean of Engineering",Status=case_when(is.na(xcl$D_Interview[1]) ~ "In Progress",xcl$D_Interview[1]<=today_Date ~ "Completed", xcl$D_Interview[1]>today_Date ~ "Planned"),Start=xcl$D_Contact[1],End=xcl$D_Interview[1])
+gnt <- gnt %>% add_row(Item="6",Group="Dean of Engineering",Status=case_when(is.na(xcl$D_Interview[1]) ~ "Not Started",xcl$D_Interview[1]<=today_Date ~ "Completed", xcl$D_Interview[1]>today_Date ~ "In Progress"),Start=xcl$D_Contact[1],End=xcl$D_Interview[1])
 
+return (gnt)
 
+}
+
+print_campus_gantt = function(gnt,campus) {
+
+today_Date <- Sys.Date()
 start_Date <-as.Date(min(gsub("\\.","-",na.omit(gnt$Start))))
 end_Date <- as.Date(max(gsub("\\.","-",na.omit(gnt$End))))+weeks(1)
 
@@ -123,7 +87,7 @@ els <-unique(as.character(gantt_plot$Status))
 
 actcols <- c("#548235", "#2E75B6", "#BF9000", "#7030A0", "#cd6600")
 
-g.gantt_plot <- gather(gantt_plot, "state", "date", 4:5) %>% mutate(date = as.Date(date, "%Y.%m.%d"), Group=factor(Group, acts[length(acts):1]), Status=factor(Status, els))
+g.gantt_plot <- gather(gantt_plot, "state", "date", 4:5) %>% mutate(date = as.Date(date), Group=factor(Group, acts[length(acts):1]), Status=factor(Status, els))
 
 ggplot(g.gantt_plot, aes(date, Group, colour = Status, group=Item)) +
   geom_line(linewidth = 10) +
@@ -131,44 +95,91 @@ ggplot(g.gantt_plot, aes(date, Group, colour = Status, group=Item)) +
   labs(x="Date", y=NULL, title=campus) + 
   scale_x_date(date_labels = "%b %d")+
   theme_gray(base_size=14)+
-  annotate(geom = "vline",
-           x = today_Date,
-           xintercept = today_Date,
-           linetype = "dashed",
+  geom_vline(xintercept = today_Date,linetype = "dashed",
            colour = "red", 
-           linewidth = 1.5) 
-```
+           linewidth = 1.5)
+}
 
-```{r echo=FALSE}
+print_progress_plot = function(gnt,campus){
+
 complete_plot <- subset(gnt,select=c("Group","Status"))
 
+gtitle = paste(campus," Completion Status")
+
+x <-c("Not Started","In Progress","Completed")
+
+complete_plot <- complete_plot %>% mutate(Status =  factor(Status, levels = x)) %>% arrange(Status)
+
 ggplot(complete_plot,aes(y=1)) + 
-  geom_bar(aes(fill=Status), position="fill") +
-  scale_x_continuous(expand=expansion(0),labels = scales::percent_format())
+  geom_bar(aes(fill=Status), position="fill", width = 0.1,) +
+  scale_x_continuous(expand=expansion(0),labels = scales::percent_format()) +
+  theme(axis.title.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.text.y = element_blank()) +
+  ggtitle(gtitle) + 
+  ylim( 0.9, 1.1) + 
+  scale_fill_manual(values=c("#cd6600",
+                             "#BF9000",
+                             "#2E75B6"))
+
+}
+
+print_club_detail = function(total_xcl,shortname) {
+
+xcl<-filter(total_xcl, ShortName==shortname)
+
+tabl <- "
+| Name        | Campus           | 
+|---------------:|:-------------|
+| Website  | Wadd      |
+| Email | eAdd      |
+| President | pres |
+"
+
+tabl<-str_replace_all(tabl,"Name",xcl$Name)
+tabl<-str_replace_all(tabl,"Campus",xcl$Campus)
+tabl<-str_replace_all(tabl,"Wadd",xcl$Webpage)
+tabl<-str_replace_all(tabl,"eAdd",xcl$Contact)
+if (!is.na(xcl$President)) {
+  tabl<-str_replace_all(tabl,"pres",xcl$President)
+} else {
+  tabl<-str_replace_all(tabl,"pres","TBD")
+}
+
+cat(tabl) # output the table in a format good for HTML/PDF/docx conversion
+}
 
 ```
 
-You can render the HTML version of this example book without changing anything:
+## Overall Status {-}
 
-1. Find the **Build** pane in the RStudio IDE, and
 
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
+## Campus Status {-}
 
-Or build the book from the R console:
+```{r echo=FALSE, fig.height=3,fig.width=8}
 
-```{r, eval=FALSE}
-bookdown::render_book()
+campus = "Berkeley"
+
+gnt_berkeley<-create_gantt_table(total_xcl,campus)
+
+print_progress_plot(gnt_berkeley,campus)
+
+
+campus = "UC Davis"
+
+gnt_ucdavis<-create_gantt_table(total_xcl,campus)
+
+print_progress_plot(gnt_ucdavis,campus)
+
+campus = "UC Irvine"
+
+gnt_ucirvine<-create_gantt_table(total_xcl,campus)
+
+print_progress_plot(gnt_ucirvine,campus)
+
 ```
 
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
 
-## Preview book
-
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
-
-```{r eval=FALSE}
-bookdown::serve_book()
-```
 
 
 ```{r include=FALSE}
@@ -177,3 +188,55 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
+
+
+# Project Plan
+
+## Phase 1 - Data Gathering
+
+- &#9745; Begin Development of Tool for Tracking Data
+- &#9745; Introduce Project at EH\&S Director's Meeting
+- &#9745; Initiate Conversations with EH\&S Staff
+- &#9744; Interview Institutional Knowledge
+    - &#9744; Introduce Concerns and Project
+    - &#9744; Identify Existing Levels of Engagement
+- &#9744; Communicate with Campus Departments with Oversight
+- &#9744; Introduce Project to Student Organization Leaders
+- &#9744; Convene Student Organization Leaders (Zoom)
+    - &#9744; Introduce Safety Discussions
+    - &#9744; Invite to Future Meeting
+    - &#9744; Send out Scheduling Poll
+- &#9744; Write Initial Report on Existing Practices
+- &#9744; Circle Back with EH\&S Directors
+    - &#9744; Share findings
+    - &#9744; Ad-hoc Committee for Further Review
+    - &#9744; Invite to Student Summit
+    
+## Phase 2 - Student Success
+
+- &#9744; High Power Rocketry Student Summit
+    - &#9744; Introductions
+    - &#9744; Hazard Identification and Risk Analysis
+    - &#9744; Roundtable Discussion
+    - &#9744; Brainstorming Session
+    - &#9744; HPR Leadership
+    - &#9744; Action Items
+- &#9744; Engage Stakeholders
+    - &#9744; Share Progress and Concerns
+    - &#9744; Review Phase 3 Goals
+    - &#9744; Share Student Recommendations
+    
+    
+## Phase 3 - Safety Assurance    
+
+- &#9744; Monitor Clubs
+    - &#9744; Evaluate Acceptable Check-Ins
+    - &#9744; Attend Rocket Launches
+    - &#9744; Discuss Documentation of Near-Misses
+- &#9744; Write Post-Year Report
+    - &#9744; Report on sentiment regarding improvements, incidents and near-misses
+    - &#9744; Identify potential larger support actions
+- &#9744; Circle Back with Ad-hoc Committee
+    - &#9744; Discuss Future Steps
+    - &#9744; Safety Metrics
+    - &#9744; ROI
