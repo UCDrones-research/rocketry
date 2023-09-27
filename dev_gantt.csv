@@ -1,9 +1,0 @@
-Item,Activity,Element,Campus,Status,Start,End
-1,EHS,Contact,Berkeley,Completed,2023.09.11,2023.09.25
-2,Risk,Contact,Berkeley,Requested,2023.09.25,0
-3,Write1,Paper,UCLA,Completed,2023.09.08,2023.09.21
-4,Write2,Paper,UCLA,In Progress,2023.09.11,2023.09.22
-5,Dev1,Develop,UCI,Completed,2023.09.14,2023.09.22
-6,STAR,Contact,Berkeley,Completed,2023.08.28,2023.09.06
-7,EHS,Paper,Berkeley,Completed,2023.09.13,2023.09.15
-8,SEB,Contact,Berkeley,In Progress,2023.09.06,2023.09.11

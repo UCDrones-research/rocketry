@@ -4,7 +4,7 @@ All chapters start with a first-level heading followed by your chapter title, li
 
 ```{r, echo= FALSE}
 campus = "Berkeley"
-print_campus_gantt(gnt_berkeley,campus)
+print_campus_gantt(Contact_data[[campus]],campus)
 
 ```
 
@@ -12,27 +12,26 @@ print_campus_gantt(gnt_berkeley,campus)
 
 ### Space Enterprise at Berkeley (SEB)
 
-```{r echo=FALSE, results='asis'}
+```{r echo=FALSE}
 
-shortname="SEB"
-
-print_club_detail(total_xcl,shortname)
+print_club_info(HPR_data[["SEB"]])
 
 ```
+
 
 ### Space Technologies and Rocketry (STAR)
 
 ```{r echo=FALSE, results='asis'}
 
-shortname="STAR"
-
-print_club_detail(total_xcl,shortname)
+print_club_info(HPR_data[["STAR"]])
 
 ```
 
 ## Oversight
 
 ### EH\&S
+
+
 
 ### Risk Services
 

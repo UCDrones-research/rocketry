@@ -2,7 +2,7 @@
 
 ```{r, echo= FALSE}
 campus = "UC Davis"
-print_campus_gantt(gnt_ucdavis,campus)
+print_campus_gantt(Contact_data[[campus]],campus)
 
 ```
 
@@ -12,9 +12,7 @@ print_campus_gantt(gnt_ucdavis,campus)
 
 ```{r echo=FALSE, results='asis'}
 
-shortname="APL"
-
-print_club_detail(total_xcl,shortname)
+print_club_info(HPR_data[["APL"]])
 
 
 
@@ -24,9 +22,7 @@ print_club_detail(total_xcl,shortname)
 
 ```{r echo=FALSE, results='asis'}
 
-shortname="ECLIPSE"
-
-print_club_detail(total_xcl,shortname)
+print_club_info(HPR_data[["ECLIPSE"]])
 
 ```
 

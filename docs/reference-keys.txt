@@ -1,9 +1,5 @@
 eq:binom
 thm:tri
-project-plan
-phase-1---data-gathering
-phase-2---student-success
-phase-3---safety-assurance
 uc-berkeley
 student-teams
 space-enterprise-at-berkeley-seb
