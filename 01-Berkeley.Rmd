@@ -1,6 +1,5 @@
 # UC Berkeley
 
-All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file.
 
 ```{r, echo= FALSE}
 campus = "Berkeley"
@@ -27,13 +26,5 @@ print_club_info(HPR_data[["STAR"]])
 
 ```
 
-## Oversight
 
-### EH\&S
-
-
-
-### Risk Services
-
-### School of Engineering
 

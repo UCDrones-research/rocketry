@@ -1,14 +1,14 @@
 --- 
-title: "UC Student High-Power Rocketry"
-author: "Brandon Stark"
-date: "`r Sys.Date()`"
+title: "UC High-Power Rocketry Student Groups"
+author: ""
+date: "Last Updated: `r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 # url: your book url like https://bookdown.org/yihui/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  Dashboard for information about UC Rocketry Projects
+  Dashboard for information about High Powered Rocketry
 link-citations: yes
 github-repo: 
 ---
@@ -19,12 +19,10 @@ github-repo:
 knitr::include_graphics('images/COE_logo.png')
 ```
 
-The **UC Center of Excellence on Unmanned Aircraft System Safety** has developed this portal of resources for all users of Unmanned Aircraft Systems within the University of California.
+The **UC Center of Excellence on Unmanned Aircraft System Safety** has developed this portal of information regarding Student-Led High Powered Rocketry Groups within the University of California.
 
 
 ## Connect with Us {-}
-Send us an email at UASsafety@ucmerced.edu if you'd like to join our UC Drone [email listserv](mailto:uassafety@ucmerced.edu?subject=UC%20Drone%20Listserv%20Request&body=Please%20sign%20me%20up%20for%20the%20UC%20Drone%20listserv) 
-
 Want to schedule an online appointment to chat?  Use our [Booking link](https://outlook.office365.com/owa/calendar/UCCenterofExcellenceonUASSafety@merced.onmicrosoft.com/bookings/)
 
 - Find a time that works for you and the system will schedule a MS Teams meeting for us.
@@ -370,5 +368,5 @@ knitr::write_bib(c(
     - &#9744; Safety Metrics
     - &#9744; ROI
     
-    
+
     

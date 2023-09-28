@@ -2,9 +2,15 @@ bookdown::gitbook:
   css: style.css
   config:
     toc:
+      collapse: subsection
+      scroll_highlight: true
       before: |
         <li><a href="./">UC High Power Rocketry</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
+    edit: null
+    download: null
+    info: null
+    toolbar:
+      position: fixed
 
