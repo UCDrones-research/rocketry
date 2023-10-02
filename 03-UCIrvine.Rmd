@@ -8,7 +8,7 @@ print_campus_gantt(Contact_data[[campus]],campus)
 
 ## Student Teams
 
-### Aggie Propulsion Lab (APL)
+### UCI Rocket Project
 
 ```{r echo=FALSE, results='asis'}
 
