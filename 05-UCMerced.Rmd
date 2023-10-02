@@ -1,18 +1,18 @@
-# UC Irvine
+# UC Merced
 
 ```{r, echo= FALSE}
-campus = "UC Irvine"
+campus = "UC Merced"
 print_campus_gantt(Contact_data[[campus]],campus)
 
 ```
 
 ## Student Teams
 
-### Aggie Propulsion Lab (APL)
+### Rocket Project
 
 ```{r echo=FALSE, results='asis'}
 
-print_club_info(HPR_data[["RPUCI"]])
+print_club_info(HPR_data[["RA"]])
 
 
 ```

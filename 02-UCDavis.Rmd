@@ -26,10 +26,4 @@ print_club_info(HPR_data[["ECLIPSE"]])
 
 ```
 
-## Oversight
 
-### EH\&S
-
-### Risk Services
-
-### School of Engineering

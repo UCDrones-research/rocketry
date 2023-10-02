@@ -1,0 +1,30 @@
+# UC San Diego
+
+```{r, echo= FALSE}
+campus = "UC San Diego"
+print_campus_gantt(Contact_data[[campus]],campus)
+
+```
+
+## Student Teams
+
+
+### Rocket Propulsion Laboratory
+
+```{r echo=FALSE, results='asis'}
+
+print_club_info(HPR_data[["RPL"]])
+
+
+```
+
+
+### Students for the Exploration and Development of Space
+
+```{r echo=FALSE, results='asis'}
+
+print_club_info(HPR_data[["SEDS"]])
+
+
+```
+

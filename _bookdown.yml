@@ -3,4 +3,11 @@ output_dir: "docs"
 language:
   ui:
     chapter_name: ""
-rmd_files: ["index.Rmd", "01-Berkeley.Rmd"]
+rmd_files: ["index.Rmd", 
+            "01-Berkeley.Rmd",
+            "02-UCDavis.Rmd",
+            "03-UCIrvine.Rmd",
+            "04-UCLA.Rmd",
+            "05-UCMerced.Rmd",
+            "06-UCRiverside.Rmd",
+            "07-UCSanDiego.Rmd"]
