@@ -14,7 +14,7 @@ student-teams-3
 rocket-project
 uc-merced
 student-teams-4
-rocket-project-1
+rocket-academy
 uc-riverside
 student-teams-5
 highlander-space-program
