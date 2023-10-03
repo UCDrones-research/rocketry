@@ -8,7 +8,7 @@ print_campus_gantt(Contact_data[[campus]],campus)
 
 ## Student Teams
 
-### Rocket Project
+### Rocket Academy
 
 ```{r echo=FALSE, results='asis'}
 
@@ -17,4 +17,30 @@ print_club_info(HPR_data[["RA"]])
 
 ```
 
+Unlike the other high powered rocketry organizations, the Rocket Academy is a subproject of the UC Merced chapter of the American Institute of Aeronautics and Astronautics (AIAA) student organization.  
 
+<!-- 
+
+
+## School of Engineering
+The UC Merced School of Engineering plays a role in the allocation of space for most of the engineering groups at UC Merced. Most of the space allocated for engineering student groups is at the UC Merced Castle Facility, an off-campus facility located 10 miles from the main campus. The remote facility, comprising of two buildings, provides significant space - while the buildings were used to capacity in the beginning years of UC Merced, there are ample available research spaces following the completion of the UC Merced 2020 Project that doubled the size of the campus. However, this space is The space used for the Rocket Academy is under the informal control of their PI, Dr. YangQuan Chen, who's official lab space is adjacent to. 
+
+
+
+## Vanguard
+
+The Vanguard Engineering Society is a group comprised of the Presidents of each of the recognized Engineering Professional Organizations at UC Merced. Similar to an Engineering Student Council, Vanguard receives funds (between \$20K-$30K) from the School of Engineering, and is responsible for allocating the funds responsibly to each of the organizations. While Vanguard is recognized as an organization at UC Merced, it is not a Registered Student Organization under the Office of Student Involvement.
+
+
+
+
+
+## Risk Services
+
+UC Merced is the newest UC school, founded in 2005. Due to its age, it lacks the historical alumni support for student organizations. As a result, the early leaders of UC Merced pledged financial support for student organizations. Unlike at other campuses, Registered Campus Organizations started out as covered under the UC's self-insurance policies. There has been a process to slowly move the RCOs out of the UC's coverage and onto their own, but some remain heavily financial supported.
+
+AIAA provides UC Merced Risk Services with an annual briefing of their activities (including RA).
+
+
+
+-->
