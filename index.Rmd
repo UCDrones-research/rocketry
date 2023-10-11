@@ -32,7 +32,6 @@ Want to schedule an online appointment to chat?  Use our [Booking link](https://
 library(tidyverse)
 library(readxl)
 library(kableExtra)
-
 ```
 
 
@@ -198,14 +197,15 @@ ggplot(complete_plot,aes(y=1)) +
 ```{r echo=FALSE}
 print_club_info = function(sht_data) {
 sht_data %>%
-  kbl() %>%
-  kable_paper("hover", full_width = F) %>%
-  pack_rows("Workspace",10,20) %>%
-  pack_rows("Training",21,24) %>%
-  pack_rows("Active Rockets",25,28) %>%
-  pack_rows("Active Engines",29,31) %>%
-  pack_rows("Fuel",32,35) %>%
-  pack_rows("Travel",36,39)
+  kbl(col.names = NULL) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  pack_rows("Team",1,9) %>%
+  pack_rows("Workspace",10,24) %>%
+  pack_rows("Training",25,28) %>%
+  pack_rows("Active Rockets",29,33) %>%
+  pack_rows("Active Engines",34,38) %>%
+  pack_rows("Fuel",39,41) %>%
+  pack_rows("Travel",42,46)
 
 }
 ```
@@ -230,13 +230,14 @@ print_progress_plot(gnt_temp,campus)
 
 #total_rockets <- sum(as.numeric(total_details[25,2:10]),na.rm=TRUE)
 
-total_liquid <- sum(as.numeric(total_details[27,2:10]),na.rm=TRUE)
-total_solid <- sum(as.numeric(total_details[26,2:10]),na.rm=TRUE)
-total_hybrid <- sum(as.numeric(total_details[28,2:10]),na.rm=TRUE)
+total_liquid <- sum(as.numeric(total_details[32,2:10]),na.rm=TRUE)
+total_solid1 <- sum(as.numeric(total_details[30,2:10]),na.rm=TRUE)
+total_solid2 <- sum(as.numeric(total_details[31,2:10]),na.rm=TRUE)
+total_hybrid <- sum(as.numeric(total_details[33,2:10]),na.rm=TRUE)
 
 active_rockets <- data.frame(
-  name=c("Solid","Liquid","Hybrid"),
-  value=c(total_solid,total_liquid,total_hybrid)
+  name=c("Solid","Solid (multi-stage)","Liquid","Hybrid"),
+  value=c(total_solid1,total_solid2,total_liquid,total_hybrid)
 )
 
 ggplot(active_rockets,aes(x=reorder(name,-value),y=value))+
@@ -248,7 +249,7 @@ ggplot(active_rockets,aes(x=reorder(name,-value),y=value))+
 ```
 ```{r fuels, echo=FALSE}
 
-temp  <- total_details[32,2:10]
+temp  <- total_details[37,2:10]
 temp <- as.character(replace(temp,is.na(temp),""))
 temp <- temp[temp!=""]
 temp <- paste(temp,collapse=",")
@@ -260,7 +261,7 @@ total_fuels <- as.data.frame(table(temp))
 
 ggplot(total_fuels,aes(x=reorder(temp,-Freq),y=Freq))+
   geom_bar(stat="identity")+
-  ggtitle("Fuels, Oxidizers and Pressurizers in Use") +
+  ggtitle("Fuels in Use") +
   xlab("Type of Fuel") +
   ylab("Count")
 

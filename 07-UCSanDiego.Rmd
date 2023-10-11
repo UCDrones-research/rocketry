@@ -1,6 +1,6 @@
 # UC San Diego
 
-```{r, echo= FALSE}
+```{r g-ucsd, echo= FALSE}
 campus = "UC San Diego"
 print_campus_gantt(Contact_data[[campus]],campus)
 
