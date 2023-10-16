@@ -8,11 +8,20 @@ print_campus_gantt(Contact_data[[campus]],campus)
 
 ## Student Teams
 
-### UCI Rocket Project
+### UCI Rocket Project - Liquid
 
 ```{r echo=FALSE, results='asis'}
 
-print_club_info(HPR_data[["RPUCI"]])
+print_club_info(HPR_data[["RPUCIL"]])
+
+
+```
+
+### UCI Rocket Project - Solid
+
+```{r echo=FALSE, results='asis'}
+
+print_club_info(HPR_data[["RPUCIS"]])
 
 
 ```

@@ -104,7 +104,7 @@ filename = "UC_HPR.xlsx"
 total_xcl<-read_excel(filename, sheet = "Contacts")
 
 campus_list <-c("Berkeley","UC Davis","UC Irvine","UCLA","UC Merced","UC Riverside","UC San Diego")
-HPR_list <-c("SEB","STAR","APL","ECLIPSE","RPUCI","RPUCLA","RA","HSP","SEDS","RPL")
+HPR_list <-c("SEB","STAR","APL","ECLIPSE","RPUCIL","RPUCIS","RPUCLA","RA","HSP","SEDS","RPL")
 
 Contact_data <- list()
 for (i in campus_list){
@@ -200,12 +200,14 @@ sht_data %>%
   kbl(col.names = NULL) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
   pack_rows("Team",1,9) %>%
-  pack_rows("Workspace",10,24) %>%
-  pack_rows("Training",25,28) %>%
-  pack_rows("Active Rockets",29,33) %>%
-  pack_rows("Active Engines",34,38) %>%
-  pack_rows("Fuel",39,41) %>%
-  pack_rows("Travel",42,46)
+  pack_rows("Workspace",10,16) %>%
+  pack_rows("Hazards",17,24) %>%
+  pack_rows("Training",25,29) %>%
+  pack_rows("Active Rockets",30,34) %>%
+  pack_rows("Active Engines",35,37) %>%
+  pack_rows("Fuels",38,41) %>%
+  pack_rows("Fuel Storage",42,44) %>%
+  pack_rows("Travel",45,49)
 
 }
 ```

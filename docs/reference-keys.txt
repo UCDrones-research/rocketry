@@ -8,7 +8,8 @@ aggie-propulsion-lab-apl
 eclipse-rocketry
 uc-irvine
 student-teams-2
-uci-rocket-project
+uci-rocket-project---liquid
+uci-rocket-project---solid
 ucla
 student-teams-3
 rocket-project
