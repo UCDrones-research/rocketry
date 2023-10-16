@@ -5,7 +5,6 @@ space-technologies-and-rocketry-star
 uc-davis
 student-teams-1
 aggie-propulsion-lab-apl
-eclipse-rocketry
 uc-irvine
 student-teams-2
 uci-rocket-project---liquid

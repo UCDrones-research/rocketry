@@ -17,6 +17,8 @@ print_club_info(HPR_data[["RA"]])
 
 ```
 
+**Notes**
+
 Unlike the other high powered rocketry organizations, the Rocket Academy is a subproject of the UC Merced chapter of the American Institute of Aeronautics and Astronautics (AIAA) student organization.  
 
 <!-- 

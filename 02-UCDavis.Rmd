@@ -12,17 +12,9 @@ print_campus_gantt(Contact_data[[campus]],campus)
 
 ```{r echo=FALSE, results='asis'}
 
-print_club_info(HPR_data[["APL"]])
+print_club_info(HPR_data[["APRL"]])
 
 
-
-```
-
-### ECLIPSE Rocketry
-
-```{r echo=FALSE, results='asis'}
-
-print_club_info(HPR_data[["ECLIPSE"]])
 
 ```
 

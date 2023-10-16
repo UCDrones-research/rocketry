@@ -32,6 +32,7 @@ Want to schedule an online appointment to chat?  Use our [Booking link](https://
 library(tidyverse)
 library(readxl)
 library(kableExtra)
+
 ```
 
 
@@ -104,7 +105,7 @@ filename = "UC_HPR.xlsx"
 total_xcl<-read_excel(filename, sheet = "Contacts")
 
 campus_list <-c("Berkeley","UC Davis","UC Irvine","UCLA","UC Merced","UC Riverside","UC San Diego")
-HPR_list <-c("SEB","STAR","APL","ECLIPSE","RPUCIL","RPUCIS","RPUCLA","RA","HSP","SEDS","RPL")
+HPR_list <-c("SEB","STAR","APRL","RPUCIL","RPUCIS","RPUCLA","RA","HSP","SEDS","RPL")
 
 Contact_data <- list()
 for (i in campus_list){
@@ -114,7 +115,8 @@ for (i in campus_list){
 HPR_data <- list()
 total_details <-read_excel(filename,"Details")
 for (i in HPR_list){
-  HPR_data[[i]] <-data.frame(total_details$`Short Name`,total_details[,i])
+  tmp <- total_details[,i] 
+  HPR_data[[i]] <-data.frame(total_details$`Short Name`,tmp)
 }
 
 
@@ -232,10 +234,10 @@ print_progress_plot(gnt_temp,campus)
 
 #total_rockets <- sum(as.numeric(total_details[25,2:10]),na.rm=TRUE)
 
-total_liquid <- sum(as.numeric(total_details[32,2:10]),na.rm=TRUE)
-total_solid1 <- sum(as.numeric(total_details[30,2:10]),na.rm=TRUE)
-total_solid2 <- sum(as.numeric(total_details[31,2:10]),na.rm=TRUE)
-total_hybrid <- sum(as.numeric(total_details[33,2:10]),na.rm=TRUE)
+total_liquid <- sum(as.numeric(total_details[34,2:10]),na.rm=TRUE)
+total_solid1 <- sum(as.numeric(total_details[32,2:10]),na.rm=TRUE)
+total_solid2 <- sum(as.numeric(total_details[33,2:10]),na.rm=TRUE)
+total_hybrid <- sum(as.numeric(total_details[35,2:10]),na.rm=TRUE)
 
 active_rockets <- data.frame(
   name=c("Solid","Solid (multi-stage)","Liquid","Hybrid"),
@@ -251,7 +253,7 @@ ggplot(active_rockets,aes(x=reorder(name,-value),y=value))+
 ```
 ```{r fuels, echo=FALSE}
 
-temp  <- total_details[37,2:10]
+temp  <- total_details[40,2:10]
 temp <- as.character(replace(temp,is.na(temp),""))
 temp <- temp[temp!=""]
 temp <- paste(temp,collapse=",")
@@ -329,11 +331,11 @@ knitr::write_bib(c(
 - &#9745; Begin Development of Tool for Tracking Data
 - &#9745; Introduce Project at EH\&S Director's Meeting
 - &#9745; Initiate Conversations with EH\&S Staff
-- &#9744; Interview Institutional Knowledge
-    - &#9744; Introduce Concerns and Project
-    - &#9744; Identify Existing Levels of Engagement
+- &#9745; Interview Institutional Knowledge
+    - &#9745; Introduce Concerns and Project
+    - &#9745; Identify Existing Levels of Engagement
 - &#9744; Communicate with Campus Departments with Oversight
-- &#9744; Introduce Project to Student Organization Leaders
+- &#9745; Introduce Project to Student Organization Leaders
 - &#9744; Convene Student Organization Leaders (Zoom)
     - &#9744; Introduce Safety Discussions
     - &#9744; Invite to Future Meeting
