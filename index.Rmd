@@ -203,13 +203,13 @@ sht_data %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
   pack_rows("Team",1,9) %>%
   pack_rows("Workspace",10,16) %>%
-  pack_rows("Hazards",17,24) %>%
-  pack_rows("Training",25,29) %>%
-  pack_rows("Active Rockets",30,34) %>%
-  pack_rows("Active Engines",35,37) %>%
-  pack_rows("Fuels",38,41) %>%
-  pack_rows("Fuel Storage",42,44) %>%
-  pack_rows("Travel",45,49)
+  pack_rows("Hazards",17,25) %>%
+  pack_rows("Training",26,30) %>%
+  pack_rows("Active Rockets",31,35) %>%
+  pack_rows("Active Engines",36,38) %>%
+  pack_rows("Fuels",39,42) %>%
+  pack_rows("Fuel Storage",43,45) %>%
+  pack_rows("Travel",46,50)
 
 }
 ```
