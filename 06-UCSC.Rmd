@@ -1,0 +1,20 @@
+# UC Santa Cruz
+
+```{r g-ucsc, echo= FALSE}
+campus = "UC Santa Cruz"
+print_campus_gantt(Contact_data[[campus]],campus)
+
+```
+
+## Student Teams
+
+### Rocket Team
+
+```{r echo=FALSE, results='asis'}
+
+print_club_info(HPR_data[["RTUCSC"]])
+
+
+```
+
+

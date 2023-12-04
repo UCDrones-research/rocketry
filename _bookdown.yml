@@ -9,5 +9,6 @@ rmd_files: ["index.Rmd",
             "03-UCIrvine.Rmd",
             "04-UCLA.Rmd",
             "05-UCMerced.Rmd",
-            "06-UCRiverside.Rmd",
-            "07-UCSanDiego.Rmd"]
+            "06-UCSC.Rmd",
+            "07-UCRiverside.Rmd",
+            "08-UCSanDiego.Rmd"]

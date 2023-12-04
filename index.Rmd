@@ -104,8 +104,8 @@ filename = "UC_HPR.xlsx"
 
 total_xcl<-read_excel(filename, sheet = "Contacts")
 
-campus_list <-c("Berkeley","UC Davis","UC Irvine","UCLA","UC Merced","UC Riverside","UC San Diego")
-HPR_list <-c("SEB","STAR","APRL","RPUCIL","RPUCIS","RPUCLA","RA","HSP","SEDS","RPL")
+campus_list <-c("Berkeley","UC Davis","UC Irvine","UCLA","UC Merced","UC Santa Cruz","UC Riverside","UC San Diego")
+HPR_list <-c("SEB","STAR","APRL","RPUCIL","RPUCIS","RPUCLA","RA","RTUCSC","HSP","SEDS","RPL")
 
 Contact_data <- list()
 for (i in campus_list){
@@ -234,10 +234,10 @@ print_progress_plot(gnt_temp,campus)
 
 #total_rockets <- sum(as.numeric(total_details[25,2:10]),na.rm=TRUE)
 
-total_liquid <- sum(as.numeric(total_details[34,2:10]),na.rm=TRUE)
-total_solid1 <- sum(as.numeric(total_details[32,2:10]),na.rm=TRUE)
-total_solid2 <- sum(as.numeric(total_details[33,2:10]),na.rm=TRUE)
-total_hybrid <- sum(as.numeric(total_details[35,2:10]),na.rm=TRUE)
+total_liquid <- sum(as.numeric(total_details[34,2:12]),na.rm=TRUE)
+total_solid1 <- sum(as.numeric(total_details[32,2:12]),na.rm=TRUE)
+total_solid2 <- sum(as.numeric(total_details[33,2:12]),na.rm=TRUE)
+total_hybrid <- sum(as.numeric(total_details[35,2:12]),na.rm=TRUE)
 
 active_rockets <- data.frame(
   name=c("Solid","Solid (multi-stage)","Liquid","Hybrid"),
@@ -336,9 +336,9 @@ knitr::write_bib(c(
     - &#9745; Identify Existing Levels of Engagement
 - &#9744; Communicate with Campus Departments with Oversight
 - &#9745; Introduce Project to Student Organization Leaders
-- &#9744; Convene Student Organization Leaders (Zoom)
-    - &#9744; Introduce Safety Discussions
-    - &#9744; Invite to Future Meeting
+- &#9745; Convene Student Organization Leaders (Zoom)
+    - &#9745; Introduce Safety Discussions
+    - &#9745; Invite to Future Meeting
     - &#9744; Send out Scheduling Poll
 - &#9744; Write Initial Report on Existing Practices
 - &#9744; Circle Back with EH\&S Directors
@@ -374,6 +374,3 @@ knitr::write_bib(c(
     - &#9744; Discuss Future Steps
     - &#9744; Safety Metrics
     - &#9744; ROI
-    
-
-    

@@ -15,10 +15,13 @@ rocket-project
 uc-merced
 student-teams-4
 rocket-academy
-uc-riverside
+uc-santa-cruz
 student-teams-5
+rocket-team
+uc-riverside
+student-teams-6
 highlander-space-program
 uc-san-diego
-student-teams-6
+student-teams-7
 rocket-propulsion-laboratory
 students-for-the-exploration-and-development-of-space
