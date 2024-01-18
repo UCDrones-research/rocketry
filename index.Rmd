@@ -334,20 +334,25 @@ knitr::write_bib(c(
 - &#9745; Interview Institutional Knowledge
     - &#9745; Introduce Concerns and Project
     - &#9745; Identify Existing Levels of Engagement
-- &#9744; Communicate with Campus Departments with Oversight
+- &#9745; Communicate with Campus Departments with Oversight
 - &#9745; Introduce Project to Student Organization Leaders
 - &#9745; Convene Student Organization Leaders (Zoom)
     - &#9745; Introduce Safety Discussions
     - &#9745; Invite to Future Meeting
-    - &#9744; Send out Scheduling Poll
+    - &#9745; Send out Scheduling Poll
+- &#9745; Organize Summit
+    - &#9745; Set Date
+    - &#9745; Arrange facilities
+    - &#9745; Arrange travel
+
+    
+## Phase 2 - Student Success {-}
+
 - &#9744; Write Initial Report on Existing Practices
 - &#9744; Circle Back with EH\&S Directors
     - &#9744; Share findings
     - &#9744; Ad-hoc Committee for Further Review
-    - &#9744; Invite to Student Summit
-    
-## Phase 2 - Student Success {-}
-
+    - &#9745; Invite to Student Summit
 - &#9744; High Power Rocketry Student Summit
     - &#9744; Introductions
     - &#9744; Hazard Identification and Risk Analysis
